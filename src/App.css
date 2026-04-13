@@ -1,0 +1,253 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #0a0705;
+  font-family: 'Georgia', serif;
+  color: #e8d5a3;
+}
+
+.app {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  color: #c9a84c;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  font-size: 1.0625rem;
+  color: #7a6040;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.75rem 1.25rem;
+  background: rgba(201, 168, 76, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 999px;
+  color: #e8d5a3;
+  font-size: 1rem;
+  font-family: 'Georgia', serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-input::placeholder {
+  color: #7a6040;
+}
+
+.search-input:focus {
+  border-color: #c9a84c;
+}
+
+.search-btn {
+  padding: 0.75rem 1.5rem;
+  background: #c9a84c;
+  color: #0a0705;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Georgia', serif;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+}
+
+.search-btn:hover:not(:disabled) {
+  background: #e0bc6a;
+  transform: translateY(-1px);
+}
+
+.search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  margin-top: 1rem;
+  color: #c0392b;
+  font-size: 0.9375rem;
+  font-style: italic;
+}
+
+.loading-card {
+  text-align: center;
+  padding: 3rem;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 1rem;
+  background: rgba(201, 168, 76, 0.03);
+}
+
+.loading-text {
+  font-size: 1.125rem;
+  color: #c9a84c;
+  margin-bottom: 0.5rem;
+}
+
+.loading-subtext {
+  font-size: 0.9375rem;
+  color: #7a6040;
+  font-style: italic;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem;
+  background: rgba(201, 168, 76, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 168, 76, 0.4);
+}
+
+.profile-name {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #c9a84c;
+  margin-bottom: 0.35rem;
+}
+
+.profile-bio {
+  font-size: 0.9375rem;
+  color: #7a6040;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.875rem;
+  color: #e8d5a3;
+}
+
+.roast-card {
+  padding: 2rem;
+  background: rgba(201, 168, 76, 0.05);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.roast-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #c9a84c;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.roast-text {
+  font-size: 1rem;
+  color: #e8d5a3;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.repos-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #c9a84c;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.repos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.repo-card {
+  padding: 1.25rem;
+  background: rgba(201, 168, 76, 0.03);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  border-radius: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.repo-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #c9a84c;
+}
+
+.repo-lang {
+  font-size: 0.8125rem;
+  color: #7a6040;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.repo-desc {
+  font-size: 0.875rem;
+  color: #e8d5a3;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.repo-stars {
+  font-size: 0.8125rem;
+  color: #7a6040;
+}
+
+@media (max-width: 600px) {
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
