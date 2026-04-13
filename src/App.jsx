@@ -20,7 +20,7 @@ const accountData = await fetch(`https://api.github.com/users/${username}`)
 const data = await accountData.json()
 
 if(data.message === "Not Found"){
-setlLoading(false)
+setLoading(false)
 setErrorMessage("User Not found")
 return
 }
@@ -62,30 +62,48 @@ Repositories:
 ${reposQueue.map(repo => `- ${repo.name} | ${repo.language} | 
   ${repo.stargazers_count} | ${repo.description}`).join('\n')}`
 
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
+  const response = await fetch("http://localhost:3001/roast", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
   },
-  body: JSON.stringify({
-    model: "claude-sonnet-4-20250514",
-   max_tokens: 1000,
-   messages:[{ role: "user", content: prompt}]
-  })
+  body: JSON.stringify({ prompt })
 })
+
 const aiData = await response.json()
 
 setRoast(aiData.content[0].text)
 setLoading(false)
-
 } 
+
 
  return (
   
     <div>
       <h1>GitGraded</h1>
+    <h2>Welcome Friend. Just a heads up, we are pretty honest around here-</h2>
+    <input 
+  value={username}
+  onChange={(e) => setUsername(e.target.value)}
+/>
+<button onClick={fetchUser}>Ready to Git Graded?</button>
+   {loading && <p>Oh my- well-</p>}
+      {errorMessage && !loading && (
+        <div className="github-info">
+          <p className="error-message">{errorMessage}</p>
+        </div>
+      )}
+      {roast && !loading && (
+        <div className="github-info">
+          <p className="">{roast}</p>
+        </div>
+      )}
+
     </div>
-  )
+ 
+
+
+)
 }
 
 export default App
